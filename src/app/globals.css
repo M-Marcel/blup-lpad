@@ -1,0 +1,492 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 1rem;
+}
+
+:root {
+  /* nft-demo foundation tokens (RGB channel values) */
+  --bg-base: 8 10 14;
+  --bg-raised: 14 17 23;
+  --bg-overlay: 20 24 33;
+  --fg-primary: 235 238 244;
+  --fg-secondary: 170 178 195;
+  --fg-muted: 120 128 145;
+  --line-subtle: 36 42 54;
+  --line-strong: 60 70 88;
+  --nft-accent: 120 165 255;
+  --nft-accent-soft: 80 110 190;
+  --gold: 214 176 96;
+  --gold-soft: 168 134 70;
+
+  /* shadcn aliases mapped to nft-demo tokens */
+  --background: rgb(var(--bg-base));
+  --foreground: rgb(var(--fg-primary));
+  --card: rgb(var(--bg-raised));
+  --card-foreground: rgb(var(--fg-primary));
+  --popover: rgb(var(--bg-raised));
+  --popover-foreground: rgb(var(--fg-primary));
+  --primary: rgb(var(--nft-accent));
+  --primary-foreground: rgb(8 10 14);
+  --secondary: rgb(var(--bg-overlay));
+  --secondary-foreground: rgb(var(--fg-primary));
+  --muted: rgb(var(--bg-overlay));
+  --muted-foreground: rgb(var(--fg-muted));
+  --accent: rgb(var(--nft-accent));
+  --accent-foreground: rgb(8 10 14);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgb(var(--line-subtle));
+  --input: rgb(var(--line-strong));
+  --ring: rgb(var(--nft-accent));
+
+  /* Charts */
+  --chart-1: rgb(var(--nft-accent));
+  --chart-2: rgb(var(--gold));
+  --chart-3: rgb(var(--fg-secondary));
+  --chart-4: rgb(var(--nft-accent-soft));
+  --chart-5: rgb(var(--gold-soft));
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: rgb(var(--bg-raised));
+  --sidebar-foreground: rgb(var(--fg-primary));
+  --sidebar-primary: rgb(var(--nft-accent));
+  --sidebar-primary-foreground: rgb(8 10 14);
+  --sidebar-accent: rgb(var(--bg-overlay));
+  --sidebar-accent-foreground: rgb(var(--fg-primary));
+  --sidebar-border: rgb(var(--line-subtle));
+  --sidebar-ring: rgb(var(--nft-accent));
+
+  /* Font families */
+  --font-sans: "Inter", "SF Pro Display", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Convenience aliases used by M2-M4 components */
+  --border-primary: var(--line-strong);
+  --border-subtle: var(--line-subtle);
+  --bg-primary: var(--bg-overlay);
+
+  color-scheme: dark;
+
+  /* BlessUP brand tokens */
+  --blessup-blue: #3366CC;
+  --blessup-blue-dark: #2B59C3;
+  --blessup-blue-light: #5B8DEF;
+  --blessup-green: #2ECC71;
+  --blessup-green-dark: #27AE60;
+  --blessup-green-light: #58D68D;
+  --blessup-gold: #FBBF24;
+  --blessup-gold-dark: #E5A914;
+  --blessup-gold-light: #FCD34D;
+  --blessup-purple: #7C3AED;
+  --blessup-purple-light: #A78BFA;
+  --blessup-pink: #EC4899;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    height: 100%;
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgb(var(--nft-accent) / 0.35);
+    color: rgb(var(--fg-primary));
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+}
+
+/* === NFT-Demo Utility Classes === */
+
+.surface {
+  background:
+    linear-gradient(180deg, rgb(var(--bg-raised) / 0.9), rgb(var(--bg-raised) / 0.7)),
+    radial-gradient(600px 300px at 100% 0%, rgb(var(--nft-accent) / 0.06), transparent 60%);
+  border: 1px solid rgb(var(--line-subtle));
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(18px);
+}
+
+.surface-gold {
+  background:
+    linear-gradient(180deg, rgb(var(--bg-raised) / 0.9), rgb(var(--bg-raised) / 0.7)),
+    radial-gradient(600px 300px at 100% 0%, rgb(var(--gold) / 0.08), transparent 60%);
+  border: 1px solid rgb(var(--gold) / 0.35);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(18px);
+}
+
+.hairline {
+  border: 1px solid rgb(var(--line-subtle));
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--line-subtle));
+  background: rgb(var(--bg-overlay) / 0.6);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--fg-secondary));
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background 200ms, border-color 200ms, box-shadow 200ms;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgb(var(--nft-accent));
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+}
+
+.btn-xs {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, rgb(var(--nft-accent)), rgb(var(--nft-accent-soft)));
+  color: rgb(10 12 18);
+  box-shadow: 0 8px 30px -10px rgb(var(--nft-accent) / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 40px -10px rgb(var(--nft-accent) / 0.8), inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, rgb(var(--gold)), rgb(var(--gold-soft)));
+  color: rgb(22 18 10);
+  box-shadow: 0 8px 30px -10px rgb(var(--gold) / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.3);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 10px 40px -10px rgb(var(--gold) / 0.8), inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+.btn-ghost {
+  background: rgb(var(--bg-overlay) / 0.6);
+  color: rgb(var(--fg-primary));
+  border: 1px solid rgb(var(--line-strong));
+}
+
+.btn-ghost:hover {
+  background: rgb(var(--bg-overlay));
+  border-color: rgb(var(--nft-accent) / 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  color: rgb(var(--fg-primary));
+  border: 1px solid rgb(var(--line-strong));
+}
+
+.btn-outline:hover {
+  background: rgb(var(--bg-overlay) / 0.4);
+  border-color: rgb(var(--fg-secondary));
+}
+
+.guard-center {
+  display: flex;
+  min-height: 60vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--line-strong)), transparent);
+}
+
+.nft-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgb(var(--nft-accent) / 0.35), transparent 55%),
+    radial-gradient(120% 120% at 100% 100%, rgb(var(--nft-accent-soft) / 0.35), transparent 55%),
+    linear-gradient(180deg, rgb(var(--bg-overlay)), rgb(var(--bg-raised)));
+  border: 1px solid rgb(var(--line-strong));
+}
+
+.nft-frame-gold {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgb(var(--gold) / 0.45), transparent 55%),
+    radial-gradient(120% 120% at 100% 100%, rgb(var(--gold-soft) / 0.4), transparent 55%),
+    linear-gradient(180deg, rgb(var(--bg-overlay)), rgb(var(--bg-raised)));
+  border: 1px solid rgb(var(--gold) / 0.5);
+}
+
+.nft-frame::before,
+.nft-frame-gold::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+.shimmer {
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgb(var(--nft-accent) / 0.4) 90deg,
+    transparent 180deg,
+    rgb(var(--nft-accent) / 0.4) 270deg,
+    transparent 360deg
+  );
+  animation: spin 12s linear infinite;
+  filter: blur(30px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.shimmer-gold {
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgb(var(--gold) / 0.55) 90deg,
+    transparent 180deg,
+    rgb(var(--gold) / 0.55) 270deg,
+    transparent 360deg
+  );
+  animation: spin 16s linear infinite;
+  filter: blur(30px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* === BlessUP Gradient Utilities === */
+
+.blessup-gradient {
+  background: linear-gradient(135deg, var(--blessup-blue), var(--blessup-green), var(--blessup-gold));
+}
+
+.blessup-gradient-text {
+  background: linear-gradient(135deg, var(--blessup-blue), var(--blessup-green), var(--blessup-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tier-elite {
+  --tier-color: var(--blessup-gold);
+}
+
+.tier-legend {
+  --tier-color: var(--blessup-purple);
+}
+
+/* === Animation Utilities === */
+
+@keyframes pool-pulse {
+  0%, 100% { transform: scaleX(1); box-shadow: none; }
+  50% { transform: scaleX(1.01); box-shadow: 0 0 12px var(--blessup-green); }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+@keyframes slide-in-top {
+  0% { transform: translateY(-16px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-pool-pulse {
+  animation: pool-pulse 0.6s ease-in-out;
+}
+
+.animate-float-up {
+  animation: float-up 1.5s ease-out forwards;
+}
+
+.animate-slide-in-top {
+  animation: slide-in-top 0.4s ease-out;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-delay-1 { animation-delay: 80ms; }
+.animate-delay-2 { animation-delay: 160ms; }
+.animate-delay-3 { animation-delay: 240ms; }
+.animate-delay-4 { animation-delay: 320ms; }
+
+@keyframes slide-in-down {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-out-up {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
+}
+
+.animate-slide-in-down {
+  animation: slide-in-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-out-up {
+  animation: slide-out-up 0.2s ease-in both;
+}
+
+/* === Reduced Motion === */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pool-pulse,
+  .animate-float-up,
+  .animate-slide-in-top,
+  .animate-fade-in-up,
+  .animate-slide-in-down,
+  .animate-slide-out-up,
+  .fade-up,
+  .shimmer,
+  .shimmer-gold {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

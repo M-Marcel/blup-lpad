@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useAccount } from "wagmi";
 import { BarChart3, Wallet, AlertCircle } from "lucide-react";
@@ -61,9 +62,9 @@ function DashboardContent() {
             You haven&apos;t purchased any ACTX tokens yet. Visit the presale
             page to make a purchase.
           </p>
-          <a href="/presale" className="btn btn-primary">
+          <Link href="/presale" className="btn btn-primary">
             Go to Presale
-          </a>
+          </Link>
         </motion.div>
       )}
 

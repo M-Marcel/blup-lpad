@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ExternalLink, Award, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { tokenUrl, txUrl } from "@/lib/explorer";
@@ -41,10 +42,10 @@ export function NftProfile({ profile, className }: NftProfileProps) {
             Network early.
           </p>
         </div>
-        <a href="/nft" className="btn btn-primary">
+        <Link href="/nft" className="btn btn-primary">
           Browse Genesis NFTs
           <ArrowUpRight className="ml-1 h-4 w-4" />
-        </a>
+        </Link>
       </div>
     );
   }
@@ -109,13 +110,13 @@ export function NftProfile({ profile, className }: NftProfileProps) {
       </div>
 
       {profile.tier === "elite" && (
-        <a
-          href={`/nft/upgrade`}
+        <Link
+          href="/nft/upgrade"
           className="btn btn-gold w-full text-center"
         >
           Upgrade to Legend
           <ArrowUpRight className="ml-1 h-4 w-4" />
-        </a>
+        </Link>
       )}
     </div>
   );

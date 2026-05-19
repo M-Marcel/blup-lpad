@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { PartyPopper, ExternalLink } from "lucide-react";
@@ -144,7 +145,7 @@ function SuccessContent({
       </motion.div>
 
       <div className="flex w-full flex-col gap-3 sm:flex-row">
-        <a
+        <Link
           href="/nft/my-nft"
           className={cn(
             "btn flex-1 text-center",
@@ -152,13 +153,13 @@ function SuccessContent({
           )}
         >
           View my NFT
-        </a>
-        <a
+        </Link>
+        <Link
           href="/presale"
           className="btn btn-outline flex-1 text-center"
         >
           Go to Presale
-        </a>
+        </Link>
       </div>
     </>
   );
@@ -179,9 +180,9 @@ function ErrorState({ error }: { readonly error: string }) {
   return (
     <div className="flex flex-col items-center gap-4 text-center">
       <p className="text-sm text-rose-400">{error}</p>
-      <a href="/nft" className="btn btn-primary">
+      <Link href="/nft" className="btn btn-primary">
         Back to NFTs
-      </a>
+      </Link>
     </div>
   );
 }

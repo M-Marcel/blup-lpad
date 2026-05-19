@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { CheckCircle2, ArrowRight, Shield } from "lucide-react";
@@ -47,10 +48,10 @@ export function SprintComplete({ markedOnChain, className }: SprintCompleteProps
         </p>
       )}
 
-      <a href="/presale" className="btn btn-primary mt-2">
+      <Link href="/presale" className="btn btn-primary mt-2">
         <ArrowRight className="h-4 w-4" />
         Proceed to Presale
-      </a>
+      </Link>
     </motion.div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useAccount } from "wagmi";
 import { ArrowUpRight, Crown, Loader2 } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -59,9 +60,9 @@ function UpgradeContent() {
     return (
       <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-4 px-4 py-16 text-center">
         <p className="text-sm text-rose-400">{error}</p>
-        <a href="/nft" className="btn btn-primary">
+        <Link href="/nft" className="btn btn-primary">
           Back to NFTs
-        </a>
+        </Link>
       </div>
     );
   }
@@ -75,9 +76,9 @@ function UpgradeContent() {
         <p className="text-sm text-[rgb(var(--fg-secondary))]">
           You need a Genesis NFT before you can upgrade. Mint one first.
         </p>
-        <a href="/nft" className="btn btn-primary">
+        <Link href="/nft" className="btn btn-primary">
           Browse Genesis NFTs
-        </a>
+        </Link>
       </div>
     );
   }
@@ -92,9 +93,9 @@ function UpgradeContent() {
         <p className="text-sm text-[rgb(var(--fg-secondary))]">
           You already hold the Genesis Gold NFT — the highest tier available.
         </p>
-        <a href="/nft/my-nft" className="btn btn-gold">
+        <Link href="/nft/my-nft" className="btn btn-gold">
           View my NFT
-        </a>
+        </Link>
       </div>
     );
   }
@@ -176,13 +177,13 @@ function UpgradeContent() {
         </div>
       </div>
 
-      <a
-        href={`/nft/checkout?tier=legend&upgradeFrom=elite`}
+      <Link
+        href="/nft/checkout?tier=legend&upgradeFrom=elite"
         className="btn btn-gold w-full text-center"
       >
         Upgrade to Legend — ${UPGRADE_DELTA.toLocaleString()}
         <ArrowUpRight className="ml-1 h-4 w-4" />
-      </a>
+      </Link>
     </div>
   );
 }

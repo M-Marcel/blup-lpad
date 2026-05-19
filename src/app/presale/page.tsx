@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Coins, CheckCircle2, Clock, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -128,10 +129,10 @@ function PresaleContent() {
               The Genesis Presale has concluded. Visit your dashboard to view
               your vesting schedule and claim tokens.
             </p>
-            <a href="/presale/dashboard" className="btn btn-primary mt-2">
+            <Link href="/presale/dashboard" className="btn btn-primary mt-2">
               <TrendingUp className="h-4 w-4" />
               Go to Dashboard
-            </a>
+            </Link>
           </div>
 
           {/* Summary stats */}

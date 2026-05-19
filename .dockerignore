@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+*.md
+e2e/
+coverage/
+.DS_Store
+tsconfig.tsbuildinfo
